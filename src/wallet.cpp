@@ -1267,9 +1267,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64> >& vecSend,
 
                 // Limit size
                 unsigned int nBytes = ::GetSerializeSize(*(CTransaction*)&wtxNew, SER_NETWORK, PROTOCOL_VERSION);
-                // Populace: Added safety margin 4000 bytes and 160 transactions
+                // Populace: Added safety margin 4000 bytes and 500 transactions
                 if ((nBytes + 4000 >= MAX_STANDARD_TX_SIZE) || 
-                    (wtxNew.vin.size() >= 160))
+                    (wtxNew.vin.size() >= 500))
                 {
                     strFailReason = _("Transaction too large");
                     return false;
